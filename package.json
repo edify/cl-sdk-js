@@ -1,0 +1,33 @@
+{
+  "name": "cl-sdk-js",
+  "version": "0.0.1",
+  "description": "Common Library API sdk for Javascript",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/edify/cl-sdk-js.git"
+  },
+  "keywords": [
+    "cl",
+    "api",
+    "common",
+    "library",
+    "sdk",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "diugalde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/edify/cl-sdk-js/issues"
+  },
+  "homepage": "https://gitlab.com/edify/cl-sdk-js#README",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "request": "^2.74.0"
+  }
+}

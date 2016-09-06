@@ -2,9 +2,9 @@
   "name": "cl-sdk-js",
   "version": "0.0.1",
   "description": "Common Library API sdk for Javascript",
-  "main": "lib/index.js",
+  "main": "lib/client.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,7 @@
   },
   "homepage": "https://gitlab.com/edify/cl-sdk-js#README",
   "dependencies": {
-    "chai": "^3.5.0",
     "mocha": "^3.0.2",
-    "request": "^2.74.0"
+    "restify": "^4.1.1"
   }
 }

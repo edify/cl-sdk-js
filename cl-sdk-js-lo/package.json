@@ -2,7 +2,7 @@
   "name": "cl-sdk-js",
   "version": "0.0.1",
   "description": "Common Library API sdk for Javascript",
-  "main": "lib/client.js",
+  "main": "lib/learning_object.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },
@@ -26,7 +26,9 @@
   },
   "homepage": "https://gitlab.com/edify/cl-sdk-js#README",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "mocha": "^3.0.2",
-    "restify": "^4.1.1"
+    "restify": "^4.1.1",
+    "should": "^11.1.0"
   }
 }

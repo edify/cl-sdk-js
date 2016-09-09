@@ -117,14 +117,14 @@ var Client = {
         let apiPath = `${apiURL}${path}`;
         let url = `${this.baseURL}${apiPath}`;
 
-        body = JSON.stringify(body);
+        let jsonBody = JSON.stringify(body);
         let method = 'post';
 
-        let headers = _generateAuthHeaders(url, method, body);
+        let headers = _generateAuthHeaders(url, method, jsonBody);
 
-        let options = {path: encodeURI(apiPath), headers: headers, body: body};
+        let options = {path: encodeURI(apiPath), headers: headers};
 
-        return this.restClient.postAsync(options).then(function(req) {
+        return this.restClient.postAsync(options, body).then(function(req) {
             let res = req.res;
             if (res.statusCode !== 200) {
                 return Promise.reject(_handleError('An error has occurred during the post request.', res.statusCode))
@@ -178,14 +178,14 @@ var Client = {
         let apiPath = `${apiURL}${path}`;
         let url = `${this.baseURL}${apiPath}`;
 
-        body = JSON.stringify(body);
+        let jsonBody = JSON.stringify(body);
         let method = 'put';
 
-        let headers = _generateAuthHeaders(url, method, body);
+        let headers = _generateAuthHeaders(url, method, jsonBody);
 
         let options = {path: encodeURI(apiPath), headers: headers, body: body};
 
-        return this.restClient.putAsync(options).then(function(req) {
+        return this.restClient.putAsync(options, body).then(function(req) {
             let res = req.res;
             if (res.statusCode !== 200) {
                 return Promise.reject(_handleError('An error has occurred during the put request.', res.statusCode))

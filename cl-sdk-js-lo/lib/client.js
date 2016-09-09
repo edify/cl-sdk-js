@@ -82,15 +82,15 @@ var Client = {
      * @returns promise
      */
     get(path, apiURL=this.apiURL) {
-        let url = `${this.baseURL}${apiURL}${path}`;
-        url = encodeURI(url);
+        let apiPath = `${apiURL}${path}`;
+        let url = `${this.baseURL}${apiPath}`;
 
         let body = '';
         let method = 'get';
 
         let headers = _generateAuthHeaders(url, method, body);
 
-        let options = {path: url, headers: headers};
+        let options = {path: encodeURI(apiPath), headers: headers};
 
         return this.restClient.getAsync(options).then(function(req) {
             let res = req.res;
@@ -114,14 +114,15 @@ var Client = {
      * @returns promise
      */
     post(path, body, apiURL=this.apiURL) {
-        let url = `${this.baseURL}${apiURL}${path}`;
-        url = encodeURI(url);
+        let apiPath = `${apiURL}${path}`;
+        let url = `${this.baseURL}${apiPath}`;
+
         body = JSON.stringify(body);
         let method = 'post';
 
         let headers = _generateAuthHeaders(url, method, body);
 
-        let options = {path: encodeURI(url), headers: headers, body: body};
+        let options = {path: encodeURI(apiPath), headers: headers, body: body};
 
         return this.restClient.postAsync(options).then(function(req) {
             let res = req.res;
@@ -143,15 +144,15 @@ var Client = {
      * @returns promise
      */
     delete(path, apiURL=this.apiURL) {
-        let url = `${this.baseURL}${apiURL}${path}`;
-        url = encodeURI(url);
+        let apiPath = `${apiURL}${path}`;
+        let url = `${this.baseURL}${apiPath}`;
 
         let body = '';
         let method = 'delete';
 
         let headers = _generateAuthHeaders(url, method, body);
 
-        let options = {path: url, headers: headers};
+        let options = {path: encodeURI(apiPath), headers: headers};
 
         return this.restClient.delAsync(options).then(function(req) {
             let res = req.res;
@@ -174,14 +175,15 @@ var Client = {
      * @returns promise
      */
     put(path, body, apiURL=this.apiURL) {
-        let url = `${this.baseURL}${apiURL}${path}`;
-        url = encodeURI(url);
+        let apiPath = `${apiURL}${path}`;
+        let url = `${this.baseURL}${apiPath}`;
+
         body = JSON.stringify(body);
         let method = 'put';
 
         let headers = _generateAuthHeaders(url, method, body);
 
-        let options = {path: url, headers: headers, body: body};
+        let options = {path: encodeURI(apiPath), headers: headers, body: body};
 
         return this.restClient.putAsync(options).then(function(req) {
             let res = req.res;

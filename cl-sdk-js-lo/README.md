@@ -89,7 +89,7 @@ LearningObject.client.findLearningObjectiveById(id).then(function(lo) {
 ```bash
 $ cd path/to/cl-api
 $ ./gradlew build
-$ java -Dspring.profiles.active=Integration_Tests,BE_Mongo,FS_S3,SRCH_ES -jar build/libs/*.jar
+$ java -Dspring.profiles.active=Integration_Tests,BE_Mongo,FS_S3,SRCH_ES,INDEX_RMQ -jar build/libs/*.jar
 ```
 
 Note: When you use the profile 'Integration_Tests' the program will start a new empty mongo database instance with the required test data. Make sure the docker-compose command was executed.

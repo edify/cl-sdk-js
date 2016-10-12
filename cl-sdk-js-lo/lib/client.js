@@ -21,6 +21,7 @@ var Client = {
         this.baseURL = baseURL;
         this.apiURL = apiURL;
         this.restClient = restify.createJsonClient({
+            retry: false,
             url: baseURL
         });
     },
@@ -101,7 +102,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.cause, err.statusCode))
+            return Promise.reject(_handleError(err.message || err.cause, err.statusCode))
         });
     },
 
@@ -132,7 +133,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.cause, err.statusCode))
+            return Promise.reject(_handleError(err.message || err.cause, err.statusCode))
         });
     },
 
@@ -162,7 +163,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.cause, err.statusCode))
+            return Promise.reject(_handleError(err.message || err.cause, err.statusCode))
         });
     },
 
@@ -193,7 +194,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.cause, err.statusCode))
+            return Promise.reject(_handleError(err.message || err.cause, err.statusCode))
         });
     }
 };
@@ -224,10 +225,10 @@ function _generateAuthHeaders(url, method, body) {
  * @returns object
  * @private
  */
-function _handleError(cause, statusCode) {
+function _handleError(msg, statusCode) {
     return {
         statusCode: statusCode,
-        body: cause
+        body: msg
     }
 }
 

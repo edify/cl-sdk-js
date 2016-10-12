@@ -101,7 +101,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.body, err.statusCode))
+            return Promise.reject(_handleError(err, err.statusCode))
         });
     },
 
@@ -132,7 +132,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.body, err.statusCode))
+            return Promise.reject(_handleError(err, err.statusCode))
         });
     },
 
@@ -162,7 +162,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.body, err.statusCode))
+            return Promise.reject(_handleError(err, err.statusCode))
         });
     },
 
@@ -193,7 +193,7 @@ var Client = {
                 return Promise.resolve(JSON.parse(res.body))
             }
         }).catch(function(err) {
-            return Promise.reject(_handleError(err.body, err.statusCode))
+            return Promise.reject(_handleError(err, err.statusCode))
         });
     }
 };
@@ -227,7 +227,7 @@ function _generateAuthHeaders(url, method, body) {
 function _handleError(err, statusCode) {
     return {
         statusCode: statusCode,
-        body: err
+        body: err.cause
     }
 }
 

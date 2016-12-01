@@ -5,7 +5,7 @@
 const restify = require('restify');
 
 const config = require('./config');
-const sauthc1Signer = require('../../../cl-auth-js/lib/sauthc1');
+const sauthc1Signer = require('cl-auth-js');
 const utils = require('./utils');
 
 

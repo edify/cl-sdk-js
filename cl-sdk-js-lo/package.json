@@ -1,8 +1,8 @@
 {
-  "name": "cl-sdk-js",
+  "name": "cl-sdk-js-lo",
   "version": "0.0.1",
-  "description": "Common Library API sdk for Javascript",
-  "main": "lib/learning_object.js",
+  "description": "Common Library Learning Object SDK for NodeJS",
+  "main": "./lib/learning_object.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },
@@ -27,6 +27,7 @@
   "homepage": "https://gitlab.com/edify/cl-sdk-js#README",
   "dependencies": {
     "bluebird": "^3.4.6",
+    "cl-auth-js": "0.0.1",
     "mocha": "^3.0.2",
     "restify": "^4.1.1",
     "should": "^11.1.0"

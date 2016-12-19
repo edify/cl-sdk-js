@@ -2,6 +2,7 @@
  * Created by diugalde on 22/08/2016.
  */
 
+const jsonStableStringify = require('json-stable-stringify');
 const restify = require('restify');
 
 const config = require('./config');
@@ -118,7 +119,7 @@ var Client = {
         let apiPath = `${apiURL}${path}`;
         let url = `${this.baseURL}${apiPath}`;
 
-        let jsonBody = JSON.stringify(body);
+        let jsonBody = jsonStableStringify(body).replace(/[ \n]/g, "");
         let method = 'post';
 
         let headers = _generateAuthHeaders(url, method, jsonBody);
@@ -179,7 +180,7 @@ var Client = {
         let apiPath = `${apiURL}${path}`;
         let url = `${this.baseURL}${apiPath}`;
 
-        let jsonBody = JSON.stringify(body);
+        let jsonBody = jsonStableStringify(body).replace(/[ \n]/g, "");
         let method = 'put';
 
         let headers = _generateAuthHeaders(url, method, jsonBody);

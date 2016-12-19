@@ -32,3 +32,6 @@
 **/.idea
 **/*.iws
 **/.idea_modules/
+
+# Environment files.
+**/.envrc
